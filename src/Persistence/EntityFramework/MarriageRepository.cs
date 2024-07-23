@@ -65,7 +65,7 @@ internal class MarriageRepository : CachingGenericRepository<Marriage>
     /// </summary>
     /// <param name="characterId">The character id.</param>
     /// <returns>The marriage Otherwise, null.</returns>
-    internal async ValueTask<DataModel.Entities.Marriage?> GetByCharacterIdAsync(Guid characterId)
+    internal async ValueTask<DataModel.Entities.Marriage?> GetMarriageByCharacterIdAsync(Guid characterId)
     {
         using var context = this.GetContext();
 

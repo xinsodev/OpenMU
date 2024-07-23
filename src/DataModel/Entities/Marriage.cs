@@ -48,7 +48,7 @@ public class Marriage
     /// <summary>
     /// Gets or sets the id of the partner.
     /// </summary>
-    public Guid PartnerId { get; set; }
+    public Guid? PartnerId { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating when the marriage request was accepted.

@@ -62,4 +62,11 @@ public class PlayerInMemoryContext : InMemoryContext, IPlayerContext
         var allAccounts = await this.Provider.GetRepository<Account>().GetAllAsync(cancellationToken).ConfigureAwait(false);
         return allAccounts.FirstOrDefault(account => account.Characters.Any(c => c.Name == characterName));
     }
+
+    /// <inheritdoc />
+    public async ValueTask<DataModel.Entities.Marriage?> GetMarriageByCharacterIdAsync(Guid characterId)
+    {
+        var marriages = await this.Provider.GetRepository<Marriage>().GetAllAsync().ConfigureAwait(false);
+        return marriages.FirstOrDefault(marriage => marriage.CharacterId == characterId || marriage.PartnerId == characterId);
+    }
 }

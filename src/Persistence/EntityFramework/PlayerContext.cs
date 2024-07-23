@@ -100,4 +100,18 @@ internal class PlayerContext : CachingEntityFrameworkContext, IPlayerContext
 
         return null;
     }
+
+    /// <inheritdoc />
+    public async ValueTask<DataModel.Entities.Marriage?> GetMarriageByCharacterIdAsync(Guid characterId)
+    {
+        using (this.RepositoryProvider.ContextStack.UseContext(this))
+        {
+            if (this.RepositoryProvider.GetRepository<Marriage, MarriageRepository>() is { } marriageRepository)
+            {
+                return await marriageRepository.GetMarriageByCharacterIdAsync(characterId).ConfigureAwait(false);
+            }
+        }
+
+        return null;
+    }
 }
