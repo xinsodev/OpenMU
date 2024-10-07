@@ -18,10 +18,21 @@ public class MarriageContext : DbContext
     /// <param name="modelBuilder">The model builder.</param>
     internal static void ConfigureModel(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Marriage>().ToTable("Marriage", SchemaNames.AccountData);
+        modelBuilder.Entity<Marriage>().ToTable(nameof(Marriage), SchemaNames.AccountData);
         modelBuilder.Entity<Marriage>(e =>
         {
             e.HasAlternateKey(f => new { f.CharacterId, f.PartnerId });
+
+            e.HasOne<Character>()
+                .WithOne()
+                .HasForeignKey<Marriage>(f => f.CharacterId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+
+            e.HasOne<Character>()
+                .WithOne()
+                .HasForeignKey<Marriage>(f => f.PartnerId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 

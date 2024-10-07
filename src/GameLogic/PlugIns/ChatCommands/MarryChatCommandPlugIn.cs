@@ -16,6 +16,11 @@ using MUnique.OpenMU.PlugIns;
 [ChatCommandHelp(Command, "Marry a character.", typeof(MarryChatCommandArgs), CharacterStatus.Normal)]
 public class MarryChatCommandPlugIn : ChatCommandPlugInBase<MarryChatCommandArgs>
 {
+    /// <summary>
+    /// The default map for marriage.
+    /// </summary>
+    private const ushort Devias = 2;
+
     private const string Command = "/marry";
 
     /// <inheritdoc />
@@ -39,44 +44,54 @@ public class MarryChatCommandPlugIn : ChatCommandPlugInBase<MarryChatCommandArgs
             throw new ArgumentException("Character not found.");
         }
 
-        var partner = player.GameContext.GetPlayerByCharacterName(arguments.CharacterName)?.SelectedCharacter;
+        var target = player.GameContext.GetPlayerByCharacterName(arguments.CharacterName)?.SelectedCharacter;
 
-        if (partner is null)
+        if (target is null)
         {
             throw new ArgumentException("Character not found.");
         }
 
-        if (character.Name == partner.Name)
+        if (character.Name == target.Name)
         {
-            throw new ArgumentException("You can't marry yourself.");
+            throw new ArgumentException("You can not marry yourself 0,0!");
         }
 
         var characterMarriage = await player.PersistenceContext.GetMarriageByCharacterIdAsync(character.Id).ConfigureAwait(false);
 
-        if (characterMarriage is not null) {
-            if (characterMarriage.MarriedAt is not null)
+        if (characterMarriage is not null)
+        {
+            if (characterMarriage.PartnerId is not null)
             {
-                throw new ArgumentException("You are already married.");
-            }
-
-            if (characterMarriage.PartnerId is null)
-            {
-                throw new ArgumentException("You already has a marriage proposal.");
+                throw new ArgumentException("You are already married!");
             }
         }
 
-        var partnerMarriage = await player.PersistenceContext.GetMarriageByCharacterIdAsync(partner.Id).ConfigureAwait(false);
+        var targetMarriage = await player.PersistenceContext.GetMarriageByCharacterIdAsync(target.Id).ConfigureAwait(false);
 
-        if (partnerMarriage is not null)
+        if (targetMarriage is not null)
         {
-            if (partnerMarriage.MarriedAt is not null)
+            if (targetMarriage.PartnerId is not null)
             {
-                throw new ArgumentException("Partner are already married.");
+                throw new ArgumentException("The other character is already married!");
+            }
+        }
+
+        if (player.CurrentMap?.MapId == Devias)
+        {
+            if (character.PositionX < (int)MarriageCoodinate.MinX ||
+                character.PositionX > (int)MarriageCoodinate.MaxX ||
+                character.PositionY < (int)MarriageCoodinate.MinY ||
+                character.PositionY > (int)MarriageCoodinate.MaxY)
+            {
+                throw new ArgumentException("You need to stand on the correct position in Devias2!");
             }
 
-            if (partnerMarriage.PartnerId is null)
+            if (target.PositionX < (int)MarriageCoodinate.MinX ||
+                target.PositionX > (int)MarriageCoodinate.MaxX ||
+                target.PositionY < (int)MarriageCoodinate.MinY ||
+                target.PositionY > (int)MarriageCoodinate.MaxY)
             {
-                throw new ArgumentException("Partner already has a marriage proposal.");
+                throw new ArgumentException("Your target need to stand on the correct position in Devias2!");
             }
         }
     }
