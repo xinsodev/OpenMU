@@ -5,7 +5,6 @@
 namespace MUnique.OpenMU.SourceGenerators;
 
 using System.Collections.Immutable;
-using System.Diagnostics;
 using System.IO;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -38,14 +37,14 @@ public class ResourceGenerator : IIncrementalGenerator
             .Combine(typeDeclarations)
             .Combine(projectDirProvider);
 
-        context.RegisterSourceOutput(compilationAndTypes, (spc, source) =>
+        context.RegisterSourceOutput(compilationAndTypes, (_, source) =>
         {
             var ((compilation, types), projectDir) = source;
-            Execute(compilation, types, projectDir, spc);
+            Execute(compilation, types, projectDir);
         });
     }
 
-    private static void Execute(Compilation compilation, ImmutableArray<BaseTypeDeclarationSyntax> types, string? projectDir, SourceProductionContext context)
+    private static void Execute(Compilation compilation, ImmutableArray<BaseTypeDeclarationSyntax> types, string? projectDir)
     {
         if (types.IsDefaultOrEmpty || string.IsNullOrEmpty(projectDir))
         {

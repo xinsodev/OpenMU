@@ -10,12 +10,12 @@ using MUnique.OpenMU.DataModel;
 /// <summary>
 /// Helper class containing shared functionality for model generators.
 /// </summary>
-public static class ModelGeneratorHelper
+internal static class ModelGeneratorHelper
 {
     /// <summary>
-    /// A header template for a generated file.
+    /// Gets a header template for a generated file.
     /// </summary>
-    public const string FileHeaderTemplate = @"// <copyright file=""{0}.Generated.cs"" company=""MUnique"">
+    public static string FileHeaderTemplate => @"// <copyright file=""{0}.Generated.cs"" company=""MUnique"">
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -28,9 +28,9 @@ public static class ModelGeneratorHelper
 // ReSharper disable All";
 
     /// <summary>
-    /// The namespace of the configuration classes.
+    /// Gets the namespace of the configuration classes.
     /// </summary>
-    public const string ConfigurationNamespace = "MUnique.OpenMU.DataModel.Configuration";
+    public static string ConfigurationNamespace => "MUnique.OpenMU.DataModel.Configuration";
 
     private static IList<Type> _customTypes;
 
