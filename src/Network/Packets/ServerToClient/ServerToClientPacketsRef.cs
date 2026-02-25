@@ -28654,8 +28654,8 @@ public readonly ref struct CashShopPointInfoResponseRef
 
 
 /// <summary>
-/// Is sent by the server when: Open cash shop.
-/// Causes reaction on client side: Cash shop is opened.
+/// Is sent by the server when: Open/close cash shop.
+/// Causes reaction on client side: Cash shop is opened/closed.
 /// </summary>
 public readonly ref struct CashShopOpenStateResponseRef
 {

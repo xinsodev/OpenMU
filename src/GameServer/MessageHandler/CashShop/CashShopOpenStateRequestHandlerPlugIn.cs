@@ -11,7 +11,7 @@ using MUnique.OpenMU.Network.Packets.ClientToServer;
 using MUnique.OpenMU.PlugIns;
 
 /// <summary>
-/// Packet handler which opens the cash shop (D2 02).
+/// Packet handler which opens/closes the cash shop (D2 02).
 /// </summary>
 [PlugIn]
 [Display(Name = nameof(PlugInResources.CashShopOpenStateRequestHandlerPlugIn_Name), Description = nameof(PlugInResources.CashShopOpenStateRequestHandlerPlugIn_Description), ResourceType = typeof(PlugInResources))]

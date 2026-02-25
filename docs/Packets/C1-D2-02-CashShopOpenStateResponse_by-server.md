@@ -2,11 +2,11 @@
 
 ## Is sent when
 
-Open cash shop.
+Open/close cash shop.
 
 ## Causes the following actions on the client side
 
-Cash shop is opened.
+Cash shop is opened/closed.
 
 ## Structure
 

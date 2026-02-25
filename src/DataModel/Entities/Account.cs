@@ -2,10 +2,9 @@
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 // </copyright>
 
-using System.ComponentModel;
-
 namespace MUnique.OpenMU.DataModel.Entities;
 
+using System.ComponentModel;
 using MUnique.OpenMU.AttributeSystem;
 using MUnique.OpenMU.DataModel.Configuration;
 
@@ -130,6 +129,21 @@ public class Account
     /// and therefore read-only within the game server.
     /// </summary>
     public bool IsTemplate { get; set; }
+
+    /// <summary>
+    /// Gets or sets the W Coin(C).
+    /// </summary>
+    public double WCoinC { get; set; }
+
+    /// <summary>
+    /// Gets or sets the W Coin(P).
+    /// </summary>
+    public double WCoinP { get; set; }
+
+    /// <summary>
+    /// Gets or sets the Goblin Points.
+    /// </summary>
+    public double GoblinPoints { get; set; }
 
     /// <summary>
     /// Gets or sets the characters.

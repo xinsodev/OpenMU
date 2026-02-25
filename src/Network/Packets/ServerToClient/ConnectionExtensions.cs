@@ -6226,8 +6226,8 @@ public static class ConnectionExtensions
     /// <param name="connection">The connection.</param>
     /// <param name="isOpened">The is opened.</param>
     /// <remarks>
-    /// Is sent by the server when: Open cash shop.
-    /// Causes reaction on client side: Cash shop is opened.
+    /// Is sent by the server when: Open/close cash shop.
+    /// Causes reaction on client side: Cash shop is opened/closed.
     /// </remarks>
     public static async ValueTask SendCashShopOpenStateResponseAsync(this IConnection? connection, bool @isOpened)
     {

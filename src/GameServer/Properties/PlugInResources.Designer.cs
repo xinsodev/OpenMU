@@ -619,7 +619,7 @@ namespace MUnique.OpenMU.GameServer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Packet handler which opens the cash shop (D2 02)..
+        ///   Looks up a localized string similar to Packet handler which opens/closes the cash shop (D2 02)..
         /// </summary>
         public static string CashShopOpenStateRequestHandlerPlugIn_Description {
             get {
@@ -651,6 +651,42 @@ namespace MUnique.OpenMU.GameServer.Properties {
         public static string CashShopOpenStateResponsePlugIn_Name {
             get {
                 return ResourceManager.GetString("CashShopOpenStateResponsePlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packet handler which gets the cash shop point info (D2 01)..
+        /// </summary>
+        public static string CashShopPointInfoRequestHandlerPlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopPointInfoRequestHandlerPlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop Point Info Request Handler.
+        /// </summary>
+        public static string CashShopPointInfoRequestHandlerPlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopPointInfoRequestHandlerPlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default implementation of the ICashShopPointInfoResponsePlugIn which is forwarding everything to the game client with specific data packets..
+        /// </summary>
+        public static string CashShopPointInfoResponsePlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopPointInfoResponsePlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop - Point Info Response.
+        /// </summary>
+        public static string CashShopPointInfoResponsePlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopPointInfoResponsePlugIn_Name", resourceCulture);
             }
         }
         

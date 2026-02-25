@@ -2131,12 +2131,24 @@
     <value>Cash Shop Open State Request Handler</value>
   </data>
   <data name="CashShopOpenStateRequestHandlerPlugIn_Description" xml:space="preserve">
-    <value>Packet handler which opens the cash shop (D2 02).</value>
+    <value>Packet handler which opens/closes the cash shop (D2 02).</value>
   </data>
   <data name="CashShopOpenStateResponsePlugIn_Name" xml:space="preserve">
     <value>Cash Shop - Open State Response</value>
   </data>
   <data name="CashShopOpenStateResponsePlugIn_Description" xml:space="preserve">
     <value>The default implementation of the ICashShopOpenStateResponsePlugIn which is forwarding everything to the game client with specific data packets.</value>
+  </data>
+  <data name="CashShopPointInfoResponsePlugIn_Name" xml:space="preserve">
+    <value>Cash Shop - Point Info Response</value>
+  </data>
+  <data name="CashShopPointInfoResponsePlugIn_Description" xml:space="preserve">
+    <value>The default implementation of the ICashShopPointInfoResponsePlugIn which is forwarding everything to the game client with specific data packets.</value>
+  </data>
+  <data name="CashShopPointInfoRequestHandlerPlugIn_Name" xml:space="preserve">
+    <value>Cash Shop Point Info Request Handler</value>
+  </data>
+  <data name="CashShopPointInfoRequestHandlerPlugIn_Description" xml:space="preserve">
+    <value>Packet handler which gets the cash shop point info (D2 01).</value>
   </data>
 </root>

@@ -10819,8 +10819,8 @@
       <Name>CashShopOpenStateResponse</Name>
       <Length>5</Length>
       <Direction>ServerToClient</Direction>
-      <SentWhen>Open cash shop.</SentWhen>
-      <CausedReaction>Cash shop is opened.</CausedReaction>
+      <SentWhen>Open/close cash shop.</SentWhen>
+      <CausedReaction>Cash shop is opened/closed.</CausedReaction>
       <Fields>
         <Field>
           <Index>4</Index>

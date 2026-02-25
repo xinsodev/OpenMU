@@ -10,7 +10,7 @@ using MUnique.OpenMU.Network.Packets.ServerToClient;
 using MUnique.OpenMU.PlugIns;
 
 /// <summary>
-/// The default implementation of the <see cref="CashShopScriptResponsePlugIn"/> which is forwarding everything to the game client with specific data packets.
+/// The default implementation of the <see cref="ICashShopScriptResponsePlugIn"/> which is forwarding everything to the game client with specific data packets.
 /// </summary>
 [PlugIn]
 [Display(Name = nameof(PlugInResources.CashShopScriptResponsePlugIn_Name), Description = nameof(PlugInResources.CashShopScriptResponsePlugIn_Description), ResourceType = typeof(PlugInResources))]
