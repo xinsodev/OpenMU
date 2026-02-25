@@ -6050,25 +6050,25 @@ public readonly ref struct CashShopPointInfoRequestRef
 /// Is sent by the client when: The player opens or closes the cash shop dialog.
 /// Causes reaction on server side: In case of opening, the server returns if the cash shop is available. If the player is in the safezone, it's not.
 /// </summary>
-public readonly ref struct CashShopOpenStateRef
+public readonly ref struct CashShopOpenStateRequestRef
 {
     private readonly Span<byte> _data;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CashShopOpenStateRef"/> struct.
+    /// Initializes a new instance of the <see cref="CashShopOpenStateRequestRef"/> struct.
     /// </summary>
     /// <param name="data">The underlying data.</param>
-    public CashShopOpenStateRef(Span<byte> data)
+    public CashShopOpenStateRequestRef(Span<byte> data)
         : this(data, true)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CashShopOpenStateRef"/> struct.
+    /// Initializes a new instance of the <see cref="CashShopOpenStateRequestRef"/> struct.
     /// </summary>
     /// <param name="data">The underlying data.</param>
     /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
-    private CashShopOpenStateRef(Span<byte> data, bool initialize)
+    private CashShopOpenStateRequestRef(Span<byte> data, bool initialize)
     {
         this._data = data;
         if (initialize)
@@ -6108,27 +6108,27 @@ public readonly ref struct CashShopOpenStateRef
     public C1HeaderWithSubCodeRef Header => new (this._data);
 
     /// <summary>
-    /// Gets or sets the is closed.
+    /// Gets or sets the is opened.
     /// </summary>
-    public bool IsClosed
+    public bool IsOpened
     {
         get => this._data[4..].GetBoolean();
         set => this._data[4..].SetBoolean(value);
     }
 
     /// <summary>
-    /// Performs an implicit conversion from a Span of bytes to a <see cref="CashShopOpenState"/>.
+    /// Performs an implicit conversion from a Span of bytes to a <see cref="CashShopOpenStateRequest"/>.
     /// </summary>
     /// <param name="packet">The packet as span.</param>
     /// <returns>The packet as struct.</returns>
-    public static implicit operator CashShopOpenStateRef(Span<byte> packet) => new (packet, false);
+    public static implicit operator CashShopOpenStateRequestRef(Span<byte> packet) => new (packet, false);
 
     /// <summary>
-    /// Performs an implicit conversion from <see cref="CashShopOpenState"/> to a Span of bytes.
+    /// Performs an implicit conversion from <see cref="CashShopOpenStateRequest"/> to a Span of bytes.
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Span<byte>(CashShopOpenStateRef packet) => packet._data; 
+    public static implicit operator Span<byte>(CashShopOpenStateRequestRef packet) => packet._data; 
 }
 
 

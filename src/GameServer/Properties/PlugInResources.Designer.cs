@@ -583,6 +583,96 @@ namespace MUnique.OpenMU.GameServer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The default implementation of the ICashShopBannerResponsePlugIn which is forwarding everything to the game client with specific data packets..
+        /// </summary>
+        public static string CashShopBannerResponsePlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopBannerResponsePlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop - Banner Response.
+        /// </summary>
+        public static string CashShopBannerResponsePlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopBannerResponsePlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packet group handler for cash shop packets (0xD2)..
+        /// </summary>
+        public static string CashShopGroupHandlerPlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopGroupHandlerPlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop Group Handler.
+        /// </summary>
+        public static string CashShopGroupHandlerPlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopGroupHandlerPlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packet handler which opens the cash shop (D2 02)..
+        /// </summary>
+        public static string CashShopOpenStateRequestHandlerPlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopOpenStateRequestHandlerPlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop Open State Request Handler.
+        /// </summary>
+        public static string CashShopOpenStateRequestHandlerPlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopOpenStateRequestHandlerPlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default implementation of the ICashShopOpenStateResponsePlugIn which is forwarding everything to the game client with specific data packets..
+        /// </summary>
+        public static string CashShopOpenStateResponsePlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopOpenStateResponsePlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop - Open State Response.
+        /// </summary>
+        public static string CashShopOpenStateResponsePlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopOpenStateResponsePlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default implementation of the ICashShopScriptResponsePlugIn which is forwarding everything to the game client with specific data packets..
+        /// </summary>
+        public static string CashShopScriptResponsePlugIn_Description {
+            get {
+                return ResourceManager.GetString("CashShopScriptResponsePlugIn_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash Shop - Script Response.
+        /// </summary>
+        public static string CashShopScriptResponsePlugIn_Name {
+            get {
+                return ResourceManager.GetString("CashShopScriptResponsePlugIn_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Handler for online state change packets..
         /// </summary>
         public static string ChangeOnlineStateHandlerPlugIn_Description {

@@ -6066,25 +6066,25 @@ public readonly struct CashShopPointInfoRequest
 /// Is sent by the client when: The player opens or closes the cash shop dialog.
 /// Causes reaction on server side: In case of opening, the server returns if the cash shop is available. If the player is in the safezone, it's not.
 /// </summary>
-public readonly struct CashShopOpenState
+public readonly struct CashShopOpenStateRequest
 {
     private readonly Memory<byte> _data;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CashShopOpenState"/> struct.
+    /// Initializes a new instance of the <see cref="CashShopOpenStateRequest"/> struct.
     /// </summary>
     /// <param name="data">The underlying data.</param>
-    public CashShopOpenState(Memory<byte> data)
+    public CashShopOpenStateRequest(Memory<byte> data)
         : this(data, true)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CashShopOpenState"/> struct.
+    /// Initializes a new instance of the <see cref="CashShopOpenStateRequest"/> struct.
     /// </summary>
     /// <param name="data">The underlying data.</param>
     /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
-    private CashShopOpenState(Memory<byte> data, bool initialize)
+    private CashShopOpenStateRequest(Memory<byte> data, bool initialize)
     {
         this._data = data;
         if (initialize)
@@ -6124,27 +6124,27 @@ public readonly struct CashShopOpenState
     public C1HeaderWithSubCode Header => new (this._data);
 
     /// <summary>
-    /// Gets or sets the is closed.
+    /// Gets or sets the is opened.
     /// </summary>
-    public bool IsClosed
+    public bool IsOpened
     {
         get => this._data.Span[4..].GetBoolean();
         set => this._data.Span[4..].SetBoolean(value);
     }
 
     /// <summary>
-    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopOpenState"/>.
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopOpenStateRequest"/>.
     /// </summary>
     /// <param name="packet">The packet as span.</param>
     /// <returns>The packet as struct.</returns>
-    public static implicit operator CashShopOpenState(Memory<byte> packet) => new (packet, false);
+    public static implicit operator CashShopOpenStateRequest(Memory<byte> packet) => new (packet, false);
 
     /// <summary>
-    /// Performs an implicit conversion from <see cref="CashShopOpenState"/> to a Memory of bytes.
+    /// Performs an implicit conversion from <see cref="CashShopOpenStateRequest"/> to a Memory of bytes.
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CashShopOpenState packet) => packet._data; 
+    public static implicit operator Memory<byte>(CashShopOpenStateRequest packet) => packet._data; 
 }
 
 

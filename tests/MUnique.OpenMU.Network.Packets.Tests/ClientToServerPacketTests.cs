@@ -1381,21 +1381,21 @@ public class PacketStructureTests
     }
 
     /// <summary>
-    /// Tests the packet size calculation for CashShopOpenState.
+    /// Tests the packet size calculation for CashShopOpenStateRequest.
     /// </summary>
     [Test]
-    public void CashShopOpenState_PacketSizeValidation()
+    public void CashShopOpenStateRequest_PacketSizeValidation()
     {
         // Fixed-length packet validation
         const int expectedLength = 5;
-        var actualLength = CashShopOpenStateRef.Length;
+        var actualLength = CashShopOpenStateRequestRef.Length;
         
         Assert.That(actualLength, Is.EqualTo(expectedLength), 
             "Packet length mismatch: declared length does not match calculated size");
         
-        // Validate field 'IsClosed' boundary
+        // Validate field 'IsOpened' boundary
         Assert.That(4 + 1, Is.LessThanOrEqualTo(expectedLength), 
-            "Field 'IsClosed' exceeds packet boundary");
+            "Field 'IsOpened' exceeds packet boundary");
     }
 
     /// <summary>

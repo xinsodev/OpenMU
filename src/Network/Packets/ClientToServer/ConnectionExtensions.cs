@@ -1981,15 +1981,15 @@ public static class ConnectionExtensions
     }
 
     /// <summary>
-    /// Sends a <see cref="CashShopOpenState" /> to this connection.
+    /// Sends a <see cref="CashShopOpenStateRequest" /> to this connection.
     /// </summary>
     /// <param name="connection">The connection.</param>
-    /// <param name="isClosed">The is closed.</param>
+    /// <param name="isOpened">The is opened.</param>
     /// <remarks>
     /// Is sent by the client when: The player opens or closes the cash shop dialog.
     /// Causes reaction on server side: In case of opening, the server returns if the cash shop is available. If the player is in the safezone, it's not.
     /// </remarks>
-    public static async ValueTask SendCashShopOpenStateAsync(this IConnection? connection, bool @isClosed)
+    public static async ValueTask SendCashShopOpenStateRequestAsync(this IConnection? connection, bool @isOpened)
     {
         if (connection is null)
         {
@@ -1998,9 +1998,9 @@ public static class ConnectionExtensions
 
         int WritePacket()
         {
-            var length = CashShopOpenStateRef.Length;
-            var packet = new CashShopOpenStateRef(connection.Output.GetSpan(length)[..length]);
-            packet.IsClosed = @isClosed;
+            var length = CashShopOpenStateRequestRef.Length;
+            var packet = new CashShopOpenStateRequestRef(connection.Output.GetSpan(length)[..length]);
+            packet.IsOpened = @isOpened;
 
             return packet.Header.Length;
         }

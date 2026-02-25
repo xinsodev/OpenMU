@@ -5,6 +5,8 @@
 namespace MUnique.OpenMU.GameLogic.PlayerActions;
 
 using System.Threading;
+using MUnique.OpenMU.GameLogic.PlayerActions.CashShop;
+using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.GameLogic.Views.Login;
 
 /// <summary>
@@ -13,6 +15,10 @@ using MUnique.OpenMU.GameLogic.Views.Login;
 public class LoginAction
 {
     private static int _templateCounter;
+
+    private readonly CashShopScriptAction _cashShopScriptAction = new();
+
+    private readonly CashShopBannerAction _cashShopBannerAction = new();
 
     /// <summary>
     /// Logins the specified player.
@@ -70,6 +76,10 @@ public class LoginAction
                     }
 
                     await player.InvokeViewPlugInAsync<IShowLoginResultPlugIn>(p => p.ShowLoginResultAsync(LoginResult.Ok)).ConfigureAwait(false);
+
+                    // Initialize the cash shop
+                    await this._cashShopScriptAction.SetCashShopScriptAsync(player).ConfigureAwait(false);
+                    await this._cashShopBannerAction.SetCashShopBannerAsync(player).ConfigureAwait(false);
                 }
                 else
                 {

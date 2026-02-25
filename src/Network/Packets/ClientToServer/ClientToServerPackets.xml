@@ -1400,7 +1400,7 @@
       <HeaderType>C1HeaderWithSubCode</HeaderType>
       <Code>D2</Code>
       <SubCode>02</SubCode>
-      <Name>CashShopOpenState</Name>
+      <Name>CashShopOpenStateRequest</Name>
       <Length>5</Length>
       <Direction>ClientToServer</Direction>
       <SentWhen>The player opens or closes the cash shop dialog.</SentWhen>
@@ -1409,7 +1409,7 @@
         <Field>
           <Index>4</Index>
           <Type>Boolean</Type>
-          <Name>IsClosed</Name>
+          <Name>IsOpened</Name>
         </Field>
       </Fields>
     </Packet>

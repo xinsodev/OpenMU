@@ -148,7 +148,7 @@
   * [C1 D1 01 - KanturuEnterRequest (by client)](C1-D1-01-KanturuEnterRequest_by-client.md)
   * [C1 D1 10 - RaklionStateInfoRequest (by client)](C1-D1-10-RaklionStateInfoRequest_by-client.md)
   * [C1 D2 01 - CashShopPointInfoRequest (by client)](C1-D2-01-CashShopPointInfoRequest_by-client.md)
-  * [C1 D2 02 - CashShopOpenState (by client)](C1-D2-02-CashShopOpenState_by-client.md)
+  * [C1 D2 02 - CashShopOpenStateRequest (by client)](C1-D2-02-CashShopOpenStateRequest_by-client.md)
   * [C1 D2 03 - CashShopItemBuyRequest (by client)](C1-D2-03-CashShopItemBuyRequest_by-client.md)
   * [C1 D2 04 - CashShopItemGiftRequest (by client)](C1-D2-04-CashShopItemGiftRequest_by-client.md)
   * [C1 D2 05 - CashShopStorageListRequest (by client)](C1-D2-05-CashShopStorageListRequest_by-client.md)

@@ -1867,7 +1867,7 @@
     <value>Character - Client ready</value>
   </data>
   <data name="CharacterClientReadyPacketHandlerPlugIn_Description" xml:space="preserve">
-    <value>Packet handler for &apos;client ready&apos; packets (0xF3, 0x12 identifier) which are sent after map changes.</value>
+    <value>Packet handler for 'client ready' packets (0xF3, 0x12 identifier) which are sent after map changes.</value>
   </data>
   <data name="CharacterCreatePacketHandlerPlugIn_Name" xml:space="preserve">
     <value>Character - Create</value>
@@ -2108,5 +2108,35 @@
   </data>
   <data name="AppearanceChangedExtendedPlugIn_Description" xml:space="preserve">
     <value>The extended implementation of the IAppearanceChangedPlugIn which is forwarding appearance changes of other players to the game client with specific data packets.</value>
+  </data>
+  <data name="CashShopGroupHandlerPlugIn_Name" xml:space="preserve">
+    <value>Cash Shop Group Handler</value>
+  </data>
+  <data name="CashShopGroupHandlerPlugIn_Description" xml:space="preserve">
+    <value>Packet group handler for cash shop packets (0xD2).</value>
+  </data>
+  <data name="CashShopScriptResponsePlugIn_Name" xml:space="preserve">
+    <value>Cash Shop - Script Response</value>
+  </data>
+  <data name="CashShopScriptResponsePlugIn_Description" xml:space="preserve">
+    <value>The default implementation of the ICashShopScriptResponsePlugIn which is forwarding everything to the game client with specific data packets.</value>
+  </data>
+  <data name="CashShopBannerResponsePlugIn_Name" xml:space="preserve">
+    <value>Cash Shop - Banner Response</value>
+  </data>
+  <data name="CashShopBannerResponsePlugIn_Description" xml:space="preserve">
+    <value>The default implementation of the ICashShopBannerResponsePlugIn which is forwarding everything to the game client with specific data packets.</value>
+  </data>
+  <data name="CashShopOpenStateRequestHandlerPlugIn_Name" xml:space="preserve">
+    <value>Cash Shop Open State Request Handler</value>
+  </data>
+  <data name="CashShopOpenStateRequestHandlerPlugIn_Description" xml:space="preserve">
+    <value>Packet handler which opens the cash shop (D2 02).</value>
+  </data>
+  <data name="CashShopOpenStateResponsePlugIn_Name" xml:space="preserve">
+    <value>Cash Shop - Open State Response</value>
+  </data>
+  <data name="CashShopOpenStateResponsePlugIn_Description" xml:space="preserve">
+    <value>The default implementation of the ICashShopOpenStateResponsePlugIn which is forwarding everything to the game client with specific data packets.</value>
   </data>
 </root>

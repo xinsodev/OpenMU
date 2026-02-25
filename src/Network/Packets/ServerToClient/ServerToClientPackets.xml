@@ -10770,6 +10770,119 @@
         </Enum>
       </Enums>
     </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>01</SubCode>
+      <Name>CashShopPointInfoResponse</Name>
+      <Length>45</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>Get cash shop points information.</SentWhen>
+      <CausedReaction>Got cash shop points information.</CausedReaction>
+      <Fields>
+        <Field>
+          <Index>4</Index>
+          <Type>Byte</Type>
+          <Name>ViewType</Name>
+        </Field>
+        <Field>
+          <Index>5</Index>
+          <Type>Double</Type>
+          <Name>TotalCash</Name>
+        </Field>
+        <Field>
+          <Index>13</Index>
+          <Type>Double</Type>
+          <Name>CashCredit</Name>
+        </Field>
+        <Field>
+          <Index>21</Index>
+          <Type>Double</Type>
+          <Name>CashPrepaid</Name>
+        </Field>
+        <Field>
+          <Index>29</Index>
+          <Type>Double</Type>
+          <Name>TotalPoint</Name>
+        </Field>
+        <Field>
+          <Index>37</Index>
+          <Type>Double</Type>
+          <Name>TotalMileage</Name>
+        </Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>02</SubCode>
+      <Name>CashShopOpenStateResponse</Name>
+      <Length>5</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>Open cash shop.</SentWhen>
+      <CausedReaction>Cash shop is opened.</CausedReaction>
+      <Fields>
+        <Field>
+          <Index>4</Index>
+          <Type>Boolean</Type>
+          <Name>IsOpened</Name>
+        </Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>0C</SubCode>
+      <Name>CashShopScriptResponse</Name>
+      <Length>10</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>Set cash shop script version.</SentWhen>
+      <CausedReaction>Cash shop script version is set.</CausedReaction>
+      <Fields>
+        <Field>
+          <Index>4</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>Zone</Name>
+        </Field>
+        <Field>
+          <Index>6</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>Year</Name>
+        </Field>
+        <Field>
+          <Index>8</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>YearId</Name>
+        </Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>15</SubCode>
+      <Name>CashShopBannerResponse</Name>
+      <Length>10</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>Set cash shop banner version.</SentWhen>
+      <CausedReaction>Cash shop banner version is set.</CausedReaction>
+      <Fields>
+        <Field>
+          <Index>4</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>Zone</Name>
+        </Field>
+        <Field>
+          <Index>6</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>Year</Name>
+        </Field>
+        <Field>
+          <Index>8</Index>
+          <Type>ShortLittleEndian</Type>
+          <Name>YearId</Name>
+        </Field>
+      </Fields>
+    </Packet>
   </Packets>
   <Enums>
     <Enum>

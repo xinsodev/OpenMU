@@ -30046,6 +30046,431 @@ public readonly struct MapEventState
     /// <returns>The packet as byte span.</returns>
     public static implicit operator Memory<byte>(MapEventState packet) => packet._data; 
 }
+
+
+/// <summary>
+/// Is sent by the server when: Get cash shop points information.
+/// Causes reaction on client side: Got cash shop points information.
+/// </summary>
+public readonly struct CashShopPointInfoResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopPointInfoResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopPointInfoResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopPointInfoResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopPointInfoResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x01;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 45;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the view type.
+    /// </summary>
+    public byte ViewType
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the total cash.
+    /// </summary>
+    public double TotalCash
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[5..]);
+        set => WriteDoubleLittleEndian(this._data.Span[5..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash credit.
+    /// </summary>
+    public double CashCredit
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[13..]);
+        set => WriteDoubleLittleEndian(this._data.Span[13..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash prepaid.
+    /// </summary>
+    public double CashPrepaid
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[21..]);
+        set => WriteDoubleLittleEndian(this._data.Span[21..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the total point.
+    /// </summary>
+    public double TotalPoint
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[29..]);
+        set => WriteDoubleLittleEndian(this._data.Span[29..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the total mileage.
+    /// </summary>
+    public double TotalMileage
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[37..]);
+        set => WriteDoubleLittleEndian(this._data.Span[37..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopPointInfoResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopPointInfoResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopPointInfoResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopPointInfoResponse packet) => packet._data; 
+}
+
+
+/// <summary>
+/// Is sent by the server when: Open cash shop.
+/// Causes reaction on client side: Cash shop is opened.
+/// </summary>
+public readonly struct CashShopOpenStateResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopOpenStateResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopOpenStateResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopOpenStateResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopOpenStateResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x02;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 5;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the is opened.
+    /// </summary>
+    public bool IsOpened
+    {
+        get => this._data.Span[4..].GetBoolean();
+        set => this._data.Span[4..].SetBoolean(value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopOpenStateResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopOpenStateResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopOpenStateResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopOpenStateResponse packet) => packet._data; 
+}
+
+
+/// <summary>
+/// Is sent by the server when: Set cash shop script version.
+/// Causes reaction on client side: Cash shop script version is set.
+/// </summary>
+public readonly struct CashShopScriptResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopScriptResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopScriptResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopScriptResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopScriptResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x0C;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 10;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the zone.
+    /// </summary>
+    public ushort Zone
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year.
+    /// </summary>
+    public ushort Year
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[6..]);
+        set => WriteUInt16LittleEndian(this._data.Span[6..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year id.
+    /// </summary>
+    public ushort YearId
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[8..]);
+        set => WriteUInt16LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopScriptResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopScriptResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopScriptResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopScriptResponse packet) => packet._data; 
+}
+
+
+/// <summary>
+/// Is sent by the server when: Set cash shop banner version.
+/// Causes reaction on client side: Cash shop banner version is set.
+/// </summary>
+public readonly struct CashShopBannerResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopBannerResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopBannerResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopBannerResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopBannerResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x15;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 10;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the zone.
+    /// </summary>
+    public ushort Zone
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year.
+    /// </summary>
+    public ushort Year
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[6..]);
+        set => WriteUInt16LittleEndian(this._data.Span[6..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year id.
+    /// </summary>
+    public ushort YearId
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[8..]);
+        set => WriteUInt16LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopBannerResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopBannerResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopBannerResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopBannerResponse packet) => packet._data; 
+}
     /// <summary>
     /// Defines the role of a guild member.
     /// </summary>
